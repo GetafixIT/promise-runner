@@ -17,11 +17,18 @@ function runner(arr, i, iteratorCB, params){
 
   var iterationPromise = function(arr, i){
     var deferred  = When.defer();
-    log('Starting:', i, arr[i]);
+    log('Starting:' + i);
     iteratorCB(arr, i, params)
-      .then(function(){
-        log('Finishing:', i, arr[i]);
-        deferred.resolve([arr, i-1]);
+      .then(function(params){
+        log('Finishing:' + i);
+
+        if(params.end === true){
+            deferredRunner.resolve(true);
+        }
+        else{
+            deferred.resolve([arr, i-1]);
+        }
+
       });
     return deferred.promise;
   };
