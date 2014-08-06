@@ -20,5 +20,8 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/GetafixIT/promise-runner/issues"
+  },
+  "dependencies": {
+    "when": "~3.4.2"
   }
 }
