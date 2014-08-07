@@ -27,7 +27,7 @@ function runner(arr, i, iteratorCB, params){
             deferredRunner  = null;
         }
         else{
-            deferred.resolve([arr, i-1]);
+            deferred.resolve([arr, i+1]);
         }
 
       });
@@ -37,7 +37,7 @@ function runner(arr, i, iteratorCB, params){
   iterationPromise(arr, i)
     .then(function(result){
       // Receives new item to process
-      if(result[1] == -1 || result[0].length == 0){
+      if(result[1] == result[0].length-1){
         // Completed list, resolve promise
         deferredRunner.resolve(true);
         deferredRunner = null;
