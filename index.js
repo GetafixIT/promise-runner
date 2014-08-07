@@ -24,6 +24,7 @@ function runner(arr, i, iteratorCB, params){
 
         if(params.end === true){
             deferredRunner.resolve(true);
+            deferredRunner  = null;
         }
         else{
             deferred.resolve([arr, i-1]);
